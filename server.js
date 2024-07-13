@@ -19,7 +19,10 @@ let db;
 async function connectToMongoDB() {
   try {
     console.log('Connecting to MongoDB with URI:', uri);
-    const client = new MongoClient(uri);
+    const client = new MongoClient(uri, {
+      tlsAllowInvalidCertificates: true,
+      tlsAllowInvalidHostnames: true
+    });
     await client.connect();
     db = client.db('coders'); // Replace 'coders' with your actual database name
     console.log('Connected to MongoDB');
