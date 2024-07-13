@@ -18,10 +18,7 @@ let db;
 // Function to connect to MongoDB
 async function connectToMongoDB() {
   try {
-    const client = new MongoClient(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const client = new MongoClient(uri);
 
     await client.connect();
     db = client.db('coders'); // Replace 'coders' with your actual database name
