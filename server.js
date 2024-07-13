@@ -18,13 +18,13 @@ let db;
 // Function to connect to MongoDB
 async function connectToMongoDB() {
   try {
+    console.log('Connecting to MongoDB with URI:', uri);
     const client = new MongoClient(uri);
-
     await client.connect();
     db = client.db('coders'); // Replace 'coders' with your actual database name
     console.log('Connected to MongoDB');
   } catch (error) {
-    console.error('Failed to connect to MongoDB', error);
+    console.error('Failed to connect to MongoDB:', error);
     process.exit(1);
   }
 }
